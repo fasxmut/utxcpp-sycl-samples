@@ -11,6 +11,7 @@ progs =
 	sycl-local-memory
 	template-class-kernel
 	smart-pointer
+	std-simd
 ;
 
 for prog in $(progs)

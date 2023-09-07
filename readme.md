@@ -66,6 +66,14 @@ Barrier primitives are made available to synchronize sets of work-items within i
 sycl::group_barrier(__group);
 ```
 
+How to build
+------------------------------
+
+```shell
+cd utxcpp-sycl-samples
+b2
+```
+
 SYCL Matrix Multiply Sample
 ------------------------------
 
