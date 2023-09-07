@@ -149,6 +149,20 @@ utxcpp
 
 [utx::iota](https://cppfx.xyz/utxcpp/utx_iota.html)
 
+[utx::uc8 utx::uc16 utx::uc32 utx::uc64 utx::ucmax](https://cppfx.xyz/utxcpp/class_types.html#class_types.role_cyan_utx_uc8_utx_uc16_utx_u)
+
+[utx::ic8 utx::ic16 utx::ic32 utx::ic64 utx::icmax](https://cppfx.xyz/utxcpp/class_types.html#class_types.role_cyan_utx_ic8_utx_ic16_utx_i)
+
+[utx::fc32 utx::fc64 utx::fc128 utx::fcmax](https://cppfx.xyz/utxcpp/class_types.html#class_types.role_cyan_utx_fc32_utx_fc64_utx_)
+
+[utx::sqrt](https://cppfx.xyz/utxcpp/utx_sqrt.html)
+
+[utx::cbrt](https://cppfx.xyz/utxcpp/utx_cbrt.html)
+
+[utx::sin](https://cppfx.xyz/utxcpp/utx_sin.html)
+
+[utx::cos](https://cppfx.xyz/utxcpp/utx_cos.html)
+
 LICENSE
 ------------------------------
 
