@@ -10,6 +10,7 @@ progs =
 	matrix-mul
 	sycl-local-memory
 	template-class-kernel
+	smart-pointer
 ;
 
 for prog in $(progs)

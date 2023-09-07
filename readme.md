@@ -110,9 +110,9 @@ int main()
 	queue.submit(
 		[&] (sycl::handler & handler)
 		{
-			auto acc1 = buff1->get_access<sycl::access::mode::read>(handler);
-			auto acc2 = buff2->get_access<sycl::access::mode::read>(handler);
-			auto acc3 = buff3->get_access<sycl::access::mode::write>(handler);
+			auto acc1 = buff1->get_access<sycl::access_mode::read>(handler);
+			auto acc2 = buff2->get_access<sycl::access_mode::read>(handler);
+			auto acc3 = buff3->get_access<sycl::access_mode::write>(handler);
 			auto lm = sycl::local_accessor<utx::ic32, 2>{sycl::range<2>{2,2}, handler};
 			handler.parallel_for<class kernel_matrix_mul>(
 				sycl::nd_range<2>{
@@ -134,12 +134,12 @@ int main()
 					utx::ic32 & lmr = lm[lid0][lid1];
 
 					lmr = 0;
-					item.barrier(sycl::access::fence_space::local_space);
+					sycl::group_barrier(item.get_group());
 
 					for (utx::uc32 ij=0; ij<side; ij++)
 					{
 						lmr += acc1[gid0][ij] * acc2[ij][gid1];
-						item.barrier(sycl::access::fence_space::local_space);
+						sycl::group_barrier(item.get_group());
 					}
 
 					acc3[gid0][gid1] = lmr;
@@ -199,6 +199,8 @@ utxcpp
 [utx::print](https://cppfx.xyz/utxcpp/utx_print.html)
 
 [utx::print_all](https://cppfx.xyz/utxcpp/utx_print_all.html)
+
+[utx::printnl](https://cppfx.xyz/utxcpp/utx_printnl.html)
 
 [utx::iota](https://cppfx.xyz/utxcpp/utx_iota.html)
 
