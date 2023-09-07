@@ -1,0 +1,11 @@
+progs =
+	vector-add
+	matrix-mul
+	sycl-local-memory
+;
+
+for prog in $(progs)
+{
+	exe $(prog) : $(prog).cpp ;
+}
+
