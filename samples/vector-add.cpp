@@ -28,9 +28,9 @@ int main()
 	queue.submit(
 		[&] (sycl::handler & handler)
 		{
-			auto acc1 = buff1.get_access<sycl::access::mode::read>(handler);
-			auto acc2 = buff2.get_access<sycl::access::mode::read>(handler);
-			auto acc3 = buff3.get_access<sycl::access::mode::write>(handler);
+			auto acc1 = buff1.get_access<sycl::access_mode::read>(handler);
+			auto acc2 = buff2.get_access<sycl::access_mode::read>(handler);
+			auto acc3 = buff3.get_access<sycl::access_mode::write>(handler);
 			handler.parallel_for<class kernel_vector_add>(
 				sycl::nd_range<1>{
 					sycl::range<1>{gsize},

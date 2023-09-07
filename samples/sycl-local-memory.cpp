@@ -38,7 +38,7 @@ int main()
 	queue.submit(
 		[&] (sycl::handler & handler)
 		{
-			auto acc = buffer.get_access<sycl::access::mode::read_write>(handler);
+			auto acc = buffer.get_access<sycl::access_mode::read_write>(handler);
 			auto lm = sycl::local_accessor<utx::fc32, 2>{sycl::range<2>{lsize*1, lsize*1}, handler};
 			handler.parallel_for<class lm_kernel>(
 				sycl::nd_range<2>{
@@ -58,11 +58,11 @@ int main()
 
 					// copy to sycl local memory
 					lm0 = gm;
-					item.barrier(sycl::access::fence_space::local_space);
+					sycl::group_barrier(item.get_group());
 
 					// computing on local memory
 					lm0 = utx::sqrt(lm0);
-					item.barrier(sycl::access::fence_space::local_space);
+					sycl::group_barrier(item.get_group());
 
 					// copy from local memory to global memory
 					gm = lm0;

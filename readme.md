@@ -13,6 +13,59 @@ utxcpp
 
 [utxcpp](https://cppfx.xyz/utxcpp)
 
+enum class sycl access_mode
+------------------------------
+
+sycl::access_mode
+
+```c++
+namespace sycl
+{
+	enum class access_mode
+	{
+		read,
+		write,
+		read_write,
+		discard_write,		// deprecated in sycl 2020
+		discard_read_write,		// deprecated in sycl 2020
+		atomic		// deprecated in sycl 2020
+	};
+}
+
+// sycl::access::mode is deprecated.
+```
+
+enum class target
+------------------------------
+
+sycl::target
+
+```c++
+namespace sycl
+{
+	enum class target
+	{
+		device,
+		host_task,
+		constant_buffer,		// deprecated
+		local,		// deprecated
+		host_buffer,		// deprecated
+		global_buffer = device		// deprecated
+	};
+}
+
+// sycl::access::target is deprecated.
+```
+
+barrier
+------------------------------
+
+Barrier primitives are made available to synchronize sets of work-items within individual groups. They are exposed through the group_barrier function.
+
+```c++
+sycl::group_barrier(__group);
+```
+
 SYCL Matrix Multiply Sample
 ------------------------------
 

@@ -14,7 +14,7 @@ template <typename data_type>
 class utx_cbrt_kernel_class
 {
 public:
-	using rw_accessor = sycl::accessor<data_type, 1, sycl::access::mode::read_write, sycl::access::target::device>;
+	using rw_accessor = sycl::accessor<data_type, 1, sycl::access_mode::read_write, sycl::target::device>;
 private:
 	rw_accessor acc;
 public:
@@ -49,7 +49,7 @@ int main()
 	queue.submit(
 		[&] (sycl::handler & handler)
 		{
-			auto acc = buff->get_access<sycl::access::mode::read_write>(handler);
+			auto acc = buff->get_access<sycl::access_mode::read_write>(handler);
 			handler.parallel_for<class utx_cbrt_kernel>(
 				sycl::nd_range<1>{sycl::range<1>{vector.size()}, sycl::range<1>{vector.size()%2==0?2u:1u}},
 				utx_cbrt_kernel_class{acc}
