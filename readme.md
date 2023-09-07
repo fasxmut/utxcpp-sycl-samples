@@ -16,7 +16,7 @@ utxcpp
 SYCL Matrix Multiply Sample
 ------------------------------
 
-```
+```c++
 //
 // Copyright (c) 2023 Fas Xmut (fasxmut at protonmail dot com)
 //
