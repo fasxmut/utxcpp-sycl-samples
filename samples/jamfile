@@ -12,6 +12,8 @@ progs =
 	template-class-kernel
 	smart-pointer
 	std-simd
+	buffer-host
+	three-dim-nd-lm
 ;
 
 for prog in $(progs)
